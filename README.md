@@ -43,8 +43,9 @@ TensorFlow.
 
 The folder main_scripts contains scripts that run different experiments:
 
-1. To run graph isomorphism test run main
-2. To run training and evaluation on one of the data sets run the main.py script
+1. To run graph isomorphism test run gnn/main_scripts/main isomorphic test.py script
+2. To run training and evaluation order-k GNN-a and order-k GNN-b on benchmark data sets run the  gnn/main_scripts/main benchmark.py script
+3. To run training and evaluation GCN + order-2 GNN-b and GCN + order-3 GNN-a on benchmark data sets run the gnn gcn/main_scripts/main benchmark.py scriptscript
 
 
 
