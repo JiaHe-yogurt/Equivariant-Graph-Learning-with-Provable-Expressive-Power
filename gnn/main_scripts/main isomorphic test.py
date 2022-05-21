@@ -49,12 +49,7 @@
     graphs = np.concatenate([graph1, graph2])
 
 
-    config = process_config('/Users/jiahe/PycharmProjects/colab gn/CONFIGS/example.json')
-    os.environ["CUDA_VISIBLE_DEVICES"] = config.gpu
-    # create tensorflow session
-    gpuconfig = tf.ConfigProto(allow_soft_placement=True, log_device_placement=False)
-    gpuconfig.gpu_options.visible_device_list = config.gpus_list
-    gpuconfig.gpu_options.allow_growth = True
+
 
     base_summary_folder = config.summary_dir
     base_exp_name = config.exp_name
