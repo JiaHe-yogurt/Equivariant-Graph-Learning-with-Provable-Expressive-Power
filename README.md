@@ -13,7 +13,7 @@ layer is the k-th and 2k-th bell numbers, respectively. Such high complexity mak
 it computationally infeasible for k-IGNs with k > 3.
 In this paper, we show that a much smaller dimension for the linear layers is
 sufficient to achieve the same expressive power. We provide two sets of orthogonal
-bases for the linear layers, each with only 3(2k ! 1) ! k basis elements. Based on
+bases for the linear layers, each with only 3(2k-1)^k basis elements. Based on
 these linear layers, we develop neural network models GNN-a and GNN-b, and
 show that for the graph data defined on k-tuples of data, GNN-a and GNN-b achieve
 the expressive power of the k-WL algorithm and the (k + 1)-WL algorithm in
