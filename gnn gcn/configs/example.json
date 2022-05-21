@@ -1,6 +1,4 @@
 { "input_order": 3,
-  "separated": false,
-  "target_shape": "tail_triangle",
   "test_exist": true,
   "exp_name": "test",
   "num_epochs": 1,
@@ -16,14 +14,11 @@
   "decay_rate": 0.9,
   "decay_epoch": 40,
   "is_decay": true,
-  "architecture1d": [100],
   "architecture2d": [20],
-  "architecture3d": [50],
   "fc": [100,100],
   "save_rate": 50,
   "val_exist": true,
     "num_hop": 4,
-  "merge_early": true,
   "convolve": [20]
 }
 
