@@ -26,7 +26,6 @@ class invariant_basic(BaseModel):
             net2 = tf.nn.relu(net2, name='relu11' )
             net1 = tf.nn.relu(net1, name='relu12' )
             net0 = tf.nn.relu(net0, name='relu13' )
-            #net3 = tf.reshape(input, (-1, 256*2))
 
             net2, net11, net00= eq.wl_hierarchy_invariant_order2('eq2',   self.config.architecture2d[0], self.config.architecture2d[0], net2)
             net2= tf.nn.relu(net2 )
@@ -34,15 +33,11 @@ class invariant_basic(BaseModel):
             net00 = tf.nn.relu(net00 )
 
 
-            #net3 = layers.order3_invariant(net3,  self.config.architecture2d[0])
             net2 = layers.diag_offdiag_maxpool(net2)
             net1 = tf.reduce_sum(tf.concat([net1, net11], axis=1), axis=2)
             net0 = tf.concat([net0, net00], axis=1)
 
             net = tf.concat([net3, net2, net1, net0], axis=1)
-            #net1 = tf.reduce_sum(tf.concat([net1, net21],axis=1), axis=2)
-            #net0 = tf.concat([net0, net20],axis=1)
-            #net = tf.concat([net1, net0], axis=1)
 
 
         elif self.config.input_order == 2:
