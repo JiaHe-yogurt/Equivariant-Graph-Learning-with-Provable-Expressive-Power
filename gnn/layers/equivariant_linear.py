@@ -142,8 +142,6 @@ def fwl_hierarchy_ops_order2(inputs, normalization='inf'):
 
     op10=  bitwise_ops.bitwise_and(op6, op7)
     op11= 1- bitwise_ops.bitwise_or(op6, op7)
-    #op12= bitwise_ops.bitwise_and(op6, op6-op7)
-    #op13= bitwise_ops.bitwise_and(op7, op7-op6)
     ones = tf.cast(tf.ones((1,1,dim,dim,dim)), tf.int64)
     op14 = bitwise_ops.bitwise_and(bitwise_ops.bitwise_xor(ones, op6), op7)
     op15 = bitwise_ops.bitwise_and(bitwise_ops.bitwise_xor(ones, op7), op6)
