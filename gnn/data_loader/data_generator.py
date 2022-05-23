@@ -12,26 +12,11 @@ class DataGenerator:
 
     # load the specified dataset in the config to the data_generator instance
     def load_data(self):
-        #graphs, labels = helper.isotest(self.config.dataset_name)
-        #graphs, labels = helper.test_case_1_and_2(self.config.target_shape, False, self.config.input_order)
-        #graphs, labels = helper.test_case_3(self.config.target_shape, False, self.config.input_order)
         graphs, labels = helper.hierarchy_load_dataset(self.config.dataset_name, self.config.input_order)
-        # if no fold specify creates random split to train and validation
-        if self.config.num_fold is None:
-            graphs, labels = helper.shuffle(graphs, labels)
-            idx = len(graphs) // 10
-            self.train_graphs, self.train_labels, self.val_graphs, self.val_labels = graphs[idx:], labels[idx:], graphs[:idx], labels[:idx]
-        elif self.config.num_fold == 0:
-            train_idx, test_idx = helper.get_parameter_split(self.config.dataset_name)
-            self.train_graphs, self.train_labels, self.val_graphs, self.val_labels = graphs[train_idx], labels[
-                train_idx], graphs[test_idx], labels[test_idx]
-        else:
-            train_idx, test_idx = helper.get_train_val_indexes(self.config.num_fold, self.config.dataset_name)
-            #train_idx = [idx for idx in train_idx if idx not in deleted]
-            #test_idx = [idx for idx in test_idx if idx not in deleted]
-            self.train_graphs, self.train_labels, self.val_graphs, self.val_labels = graphs[train_idx], labels[train_idx], graphs[test_idx], labels[
-                test_idx]
-        # change validation graphs to the right shape
+        graphs, labels = helper.shuffle(graphs, labels)
+        idx = len(graphs) // 10
+        self.train_graphs, self.train_labels, self.val_graphs, self.val_labels = graphs[idx:], labels[idx:], graphs[:idx], labels[:idx]
+         # change validation graphs to the right shape
         self.val_graphs = [np.expand_dims(g, 0) for g in self.val_graphs]
         self.train_size = len(self.train_graphs)
         self.val_size = len(self.val_graphs)
